@@ -35,7 +35,8 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
+        //add the ? to say it may or may not have the x
+        test: /\.jsx?$/,
         exclude: /node_module/,
         use: {
           loader: "babel-loader",
@@ -44,6 +45,9 @@ module.exports = {
     ],
   },
   plugins: [new MiniCssExtractPlugin()],
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
   devtool: "source-map",
   devServer: {
     contentBase: "./dist",
