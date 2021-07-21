@@ -1,7 +1,5 @@
 # webpack config Setup
 
-# Setup webpack with typescript
-
 1. Create a folder for the project and CD into it
 2. `$npm init -y` to create the package.json
 3. `$yarn add -D webpack webpack-cli`. We can also start with `npx webpack`, it will install and give the hint of what needs to be installed
