@@ -9,10 +9,10 @@ const App = () => {
       <section className="hero"></section>
       <main>
         <section>
-          <h1>Oh Hy, React</h1>
+          <h1>Recipies</h1>
         </section>
-        <img src={sword} alt="sword image" width="250" />
-        <img src={swordSvg} alt="sword image" width="250" />
+        {/* <img src={sword} alt="sword image" width="250" />
+        <img src={swordSvg} alt="sword image" width="250" /> */}
         <Recipies />
       </main>
     </>
