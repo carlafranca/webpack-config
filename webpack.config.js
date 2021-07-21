@@ -1,4 +1,6 @@
+const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 let mode = "development";
 //this is a fix for webpack not picking up browserlistrc (bug)
@@ -18,8 +20,12 @@ module.exports = {
   target: target,
   //save the images in a folder
   //findout what the query means in the webpack docs
+  //use clean: true to clean the dist folder
   output: {
+    clean: true,
+    path: path.resolve(__dirname, "./dist"),
     assetModuleFilename: "images/[hash][ext][query]",
+    filename: "main.js",
   },
   module: {
     rules: [
@@ -71,7 +77,14 @@ module.exports = {
       },
     ],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  //adding the template to keep div#root to file (basically to keep integrity of the html)
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      inject: "body",
+    }),
+  ],
   resolve: {
     extensions: [".js", ".jsx"],
   },
